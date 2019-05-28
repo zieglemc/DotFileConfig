@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 backup_existing_conf(){
+    echo "Create Backup of existing configuration"
     if ! [ -d .config_backup ]; then
         mkdir -p .config_backup/config
     fi
@@ -24,8 +25,8 @@ backup_existing_conf(){
 exists=0
 [ -d ${HOME}/.dotfileconf/ ] && exists=1 || mkdir ${HOME}/.dotfileconf
 
-
 ### create a backup of the existing configuration and clone my dotfiles from github ###
+echo "Creating backup and getting my configuration if necessary"
 [ $exists -eq "0" ] \
     && backup_existing_conf \
     && git clone --recursive --bare https://www.github.com/zieglemc/Dotfiles.git $HOME/.dotfileconf \
@@ -36,6 +37,7 @@ exists=0
 [ -d ${HOME}/.fzf ] || ( git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install )
 
 ### getting my emacs config ###
+echo "Getting the emacs configuration from github if necessary"
 if [ -d $HOME/.emacs.d ];then
     cd $HOME/.emacs.d
     if !  git status >/dev/null 2>&1 ; then
@@ -51,5 +53,6 @@ fi
 
 
 ### setting zsh as the default shell ###
+echo "Checking for current shell and changing to zsh if necessary"
 curr_shell=$(grep $USER /etc/passwd | rev | cut -d: -f1 | rev)
 [ "$curr_shell" = "/bin/zsh" ] || ( [ -f /bin/zsh ] && chsh -s /bin/zsh )
