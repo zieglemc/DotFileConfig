@@ -26,12 +26,17 @@ exists=0
 [ -d ${HOME}/.dotfileconf/ ] && exists=1 || mkdir ${HOME}/.dotfileconf
 
 ### create a backup of the existing configuration and clone my dotfiles from github ###
-echo "Creating backup and getting my configuration if necessary"
-[ $exists -eq "0" ] \
-    && backup_existing_conf \
-    && git clone --recursive --bare https://www.github.com/zieglemc/Dotfiles.git $HOME/.dotfileconf \
-    && git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME config --local status.showUntrackedFiles no \
-    && git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME checkout
+if [ $exists -eq "0" ]; then
+    echo "Creating backup and getting my configuration"
+    backup_existing_conf
+    git clone --recursive --bare https://www.github.com/zieglemc/Dotfiles.git $HOME/.dotfileconf
+    git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME config --local status.showUntrackedFiles no
+else
+    echo "Updating my current dotfile configution"
+    git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME pull
+fi
+git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME checkout
+
 
 ### installing fzf ###
 [ -d ${HOME}/.fzf ] || ( git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install )
