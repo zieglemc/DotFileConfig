@@ -2,22 +2,22 @@
 
 backup_existing_conf(){
     echo "Create Backup of existing configuration"
-    if ! [ -d .config_backup ]; then
-        mkdir -p .config_backup/config
+    if ! [ -d $HOME/.config_backup ]; then
+        mkdir -p $HOME/.config_backup/config
     fi
-    [ ! -f ${HOME}/.zshrc ] || mv --backup=numbered ${HOME}/.zshrc ${HOME}/.config_backup
-    [ ! -f ${HOME}/.bashrc ] || mv --backup=numbered ${HOME}/.bashrc ${HOME}/.config_backup
-    [ ! -f ${HOME}/.Xdefaults ] || mv --backup=numbered ${HOME}/.Xdefaults ${HOME}/.config_backup
-    [ ! -f ${HOME}/.bash_profile ] || mv --backup=numbered ${HOME}/.bash_profile ${HOME}/.config_backup
-    [ ! -f ${HOME}/.bash_exports ] || mv --backup=numbered ${HOME}/.bash_exports ${HOME}/.config_backup
-    [ ! -f ${HOME}/.bash_aliases ] || mv --backup=numbered ${HOME}/.bash_aliases ${HOME}/.config_backup
-    [ ! -f ${HOME}/.bash_funcs ] || mv --backup=numbered ${HOME}/.bash_funcs ${HOME}/.config_backup
-    [ ! -f ${HOME}/.profile ] || mv --backup=numbered ${HOME}/.profile ${HOME}/.config_backup
-    [ ! -d ${HOME}/.config/awesome ] || mv --backup=numbered ${HOME}/.config/awesome ${HOME}/.config_backup/config/
-    [ ! -d ${HOME}/.config/zsh ] || mv --backup=numbered ${HOME}/.config/awesome ${HOME}/.config_backup/config/
-    [ ! -d ${HOME}/.config/bash ] || mv --backup=numbered ${HOME}/.config/awesome ${HOME}/.config_backup/config/
-    [ ! -d ${HOME}/.urxvt ] || mv --backup=numbered ${HOME}/.urxvt ${HOME}/.config_backup/
-    [ ! -d ${HOME}/.oh-my-zsh ] || mv --backup=numbered ${HOME}/.oh-my-zsh ${HOME}/.config_backup/
+    [ -f ${HOME}/.zshrc ] && mv --backup=numbered ${HOME}/.zshrc ${HOME}/.config_backup
+    [ -f ${HOME}/.bashrc ] && mv --backup=numbered ${HOME}/.bashrc ${HOME}/.config_backup
+    [ -f ${HOME}/.Xdefaults ] && mv --backup=numbered ${HOME}/.Xdefaults ${HOME}/.config_backup
+    [ -f ${HOME}/.bash_profile ] && mv --backup=numbered ${HOME}/.bash_profile ${HOME}/.config_backup
+    [ -f ${HOME}/.bash_exports ] && mv --backup=numbered ${HOME}/.bash_exports ${HOME}/.config_backup
+    [ -f ${HOME}/.bash_aliases ] && mv --backup=numbered ${HOME}/.bash_aliases ${HOME}/.config_backup
+    [ -f ${HOME}/.bash_funcs ] && mv --backup=numbered ${HOME}/.bash_funcs ${HOME}/.config_backup
+    [ -f ${HOME}/.profile ] && mv --backup=numbered ${HOME}/.profile ${HOME}/.config_backup
+    [ -d ${HOME}/.config/awesome ] && mv --backup=numbered ${HOME}/.config/awesome ${HOME}/.config_backup/config/
+    [ -d ${HOME}/.config/zsh ] && mv --backup=numbered ${HOME}/.config/zsh ${HOME}/.config_backup/config/
+    [ -d ${HOME}/.config/bash ] && mv --backup=numbered ${HOME}/.config/bash ${HOME}/.config_backup/config/
+    [ -d ${HOME}/.urxvt ] && mv --backup=numbered ${HOME}/.urxvt ${HOME}/.config_backup/
+    [ -d ${HOME}/.oh-my-zsh ] && mv --backup=numbered ${HOME}/.oh-my-zsh ${HOME}/.config_backup/
 }
 
 
