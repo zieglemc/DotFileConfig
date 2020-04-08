@@ -29,7 +29,7 @@ exists=0
 if [ $exists -eq "0" ]; then
     echo "Creating backup and getting my configuration"
     backup_existing_conf
-    git clone --recursive --bare https://www.github.com/zieglemc/Dotfiles.git $HOME/.dotfileconf
+    git clone --recurse-submodules --bare https://www.github.com/zieglemc/Dotfiles.git $HOME/.dotfileconf
     git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME config --local status.showUntrackedFiles no
 else
     echo "Updating my current dotfile configution"
