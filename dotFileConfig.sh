@@ -16,6 +16,7 @@ backup_existing_conf(){
     [ -d ${HOME}/.config/awesome ] && mv --backup=numbered ${HOME}/.config/awesome ${HOME}/.config_backup/config/
     [ -d ${HOME}/.config/zsh ] && mv --backup=numbered ${HOME}/.config/zsh ${HOME}/.config_backup/config/
     [ -d ${HOME}/.config/bash ] && mv --backup=numbered ${HOME}/.config/bash ${HOME}/.config_backup/config/
+    [ -d ${HOME}/.config/xfce4 ] && mv --backup=numbered ${HOME}/.config/bash ${HOME}/.config_backup/config/
     [ -d ${HOME}/.urxvt ] && mv --backup=numbered ${HOME}/.urxvt ${HOME}/.config_backup/
     [ -d ${HOME}/.oh-my-zsh ] && mv --backup=numbered ${HOME}/.oh-my-zsh ${HOME}/.config_backup/
 }
