@@ -19,8 +19,8 @@ backup_existing_conf(){
     [ -d ${HOME}/.config/xfce4 ] && mv --backup=numbered ${HOME}/.config/xfce4 ${HOME}/.config_backup/config/
     [ -d ${HOME}/.urxvt ] && mv --backup=numbered ${HOME}/.urxvt ${HOME}/.config_backup/
     [ -d ${HOME}/.oh-my-zsh ] && mv --backup=numbered ${HOME}/.oh-my-zsh ${HOME}/.config_backup/
-    [ -d ${HOME}/.config/terminator ] && mv --backup=numbered ${HOME}/.config/terminator ${HOME}/.config_backup/
-    [ -d ${HOME}/.config/systemd ] && mv --backup=numbered ${HOME}/.config/systemd ${HOME}/.config_backup/
+    [ -d ${HOME}/.config/terminator ] && mv --backup=numbered ${HOME}/.config/terminator ${HOME}/.config_backup/config
+    [ -d ${HOME}/.config/systemd ] && mv --backup=numbered ${HOME}/.config/systemd ${HOME}/.config_backup/config
 }
 
 
